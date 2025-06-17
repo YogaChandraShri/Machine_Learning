@@ -1,0 +1,6 @@
+Requirements:
+
+pip install streamlit
+pip install pandas
+pip install pip install scikit-learn
+pip install pickle

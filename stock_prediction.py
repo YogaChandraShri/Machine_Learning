@@ -9,6 +9,7 @@ Original file is located at
 
 import pandas as pd
 from sklearn.linear_model import LinearRegression
+import pickle
 
 """**LOADING THE DATA**"""
 
@@ -32,6 +33,8 @@ stock.dropna(inplace=True)
 
 stock.isnull().sum()
 
+stock.columns
+
 """**SPLITING THE INDEPENDENT AND DEPENDENT VARIABLES**"""
 
 indep=stock[['VOLUME ','HIGH ','LOW ','close ','OPEN ']]
@@ -45,4 +48,8 @@ Lr.fit(indep,dep)
 
 """**NEXT DAY OPENING PRICE OF THE JUBILANT FOODWORKS LIMITED STOCK IS PREDICTED.**"""
 
-Lr.predict([[457279,700.15,692.05,695.85,694.70]])
+Lr.predict([[6745778,637.2,622.5,628.75,637.15]])
+
+import pickle
+with open("model.pkl", "wb") as f:
+    pickle.dump(Lr, f)
